@@ -1,3 +1,4 @@
+import { Link, routes } from '@redwoodjs/router'
 import { CellFailureProps, CellSuccessProps } from '@redwoodjs/web'
 
 export const QUERY = gql`
@@ -30,7 +31,10 @@ export const Success = ({ inscritos }: CellSuccessProps<inscritosQuery>) => {
       {inscritos.map((eventos) => (
         <inscritos key={eventos.id}>
           <header>
-            <h2>{eventos.titulo}</h2>
+            <h2>
+              {' '}
+              <Link to={routes.eventos()}>{eventos.titulo}</Link>
+            </h2>
           </header>
           <p>{eventos.acerca}</p>
           <p>{eventos.pelo}</p>
